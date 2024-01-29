@@ -1,0 +1,59 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    volumes:
+      - ./db:/data/db
+    restart: always
+
+  backend:
+    build: .
+    container_name: stock-backend
+    depends_on:
+      - mongodb
+    volumes:
+      - ./python-src/:/usr/src/stock-backend/python-src/
+      - ./algorithm/:/usr/src/stock-backend/algorithm/
+      - ./cron-algorithm/:/usr/src/stock-backend/cron-algorithm/
+      - ./Config.toml:/usr/src/stock-backend/Config.toml
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  nginx:
+    image: nginx
+    container_name: stock-nginx
+    ports:
+      - 80:80
+    depends_on:
+      - mongodb
+      - backend
+    restart: always
+    volumes:
+      - ./stock.conf:/etc/nginx/conf.d/deault.conf
+      - ./www/:/usr/share/nginx/html/
+
+  notebook:
+    image: jupyter/minimal-notebook
+    container_name: notebook
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    ports:
+      - 8888:8888
+    depends_on:
+      - mongodb
+      - backend
+    restart: always
+    volumes:
+      - .:/home/jovyan/work
+      - ./configure_environment.sh:/usr/local/bin/before-notebook.d/configure_environment.sh
+    environment:
+      - JUPYTER_TOKEN=1233ccdb3d1f642dca21b7ed2646df01224d15670aeea220

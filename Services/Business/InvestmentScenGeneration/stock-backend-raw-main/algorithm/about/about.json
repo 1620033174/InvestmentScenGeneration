@@ -1,0 +1,88 @@
+[
+    {
+        "stock_id": "002932.XSHE",
+        "rating": 0.71,
+        "todayGains": 3.15,
+        "beatPercentage": 97.35,
+        "increaseProbability": 45.15,
+        "message": "近期消息面一般，主力资金有介入迹象，短期呈现震荡趋势，市场关注意愿一般。",
+        "tomorrowPredict": 45.15,
+        "tomorrowAvgPredict": 0.15,
+        "tomorrowSamples": 1081,
+        "afterTomorrowPredict": 41.19,
+        "afterTomorrowAvgPredict": 0.18,
+        "afterTomorrowSamples": 987,
+        "valuePredict": [
+            22.09,
+            35.4,
+            57.0,
+            13.79
+        ],
+        "inRankList": [
+            {
+                "rank": 1,
+                "stockName": "东方财富",
+                "rankScore": 74.92,
+                "percentage": 0.98
+            },
+            {
+                "rank": 2,
+                "stockName": "中科创达",
+                "rankScore": 74.92,
+                "percentage": -0.98
+            },
+            {
+                "rank": 3,
+                "stockName": "宝信软件",
+                "rankScore": 74.92,
+                "percentage": -0.98
+            }
+        ],
+        "marketRankList": [
+            {
+                "rank": 1,
+                "stockName": "东方财富",
+                "rankScore": 74.92,
+                "percentage": -0.98
+            },
+            {
+                "rank": 2,
+                "stockName": "中科创达",
+                "rankScore": 74.92,
+                "percentage": -0.98
+            },
+            {
+                "rank": 3,
+                "stockName": "宝信软件",
+                "rankScore": 74.92,
+                "percentage": -0.98
+            }
+        ],
+        "inRankInfo":"生物行业",
+        "marketRankInfo":"沪深行业",
+        "interStock": {
+            "total": 135,
+            "finished": 132
+        },
+        "HSStock": {
+            "total": 4828,
+            "finished": 4718
+        },
+        "interInfo": {
+            "highest": 74.92,
+            "lowest": 48.96,
+            "average": 62.47,
+            "self_score": 73.88,
+            "self_rank": "第3名",
+            "proportion": 97
+        },
+        "marketInfo": {
+            "highest": 74.92,
+            "lowest": 48.96,
+            "average": 62.47,
+            "self_score": 73.88,
+            "self_rank": "打败97.35%",
+            "proportion": 97.35
+        }
+    }
+]

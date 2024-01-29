@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  padq-business-investmentscengenerationtool.backend:
+    build: ./Service/Business/InvestmentScenGeneration/finance_backend-master    
+    depends_on:
+      - padq-business-investmentscengenerationtool.db
+  padq-business-investmentscengenerationtool.db:
+    image: mysql:5.7
+      
+  padq-business-investmentscengenerationtool.flask:
+    build: ./Service/Business/InvestmentScenGeneration/finance_flask
+    depends_on:
+      - padq-business-investmentscengenerationtool.backend
+      - padq-business-investmentscengenerationtool.db
+
+  padq-business-investmentscengenerationtool.nginx:
+    image: nginx
+    depends_on:
+      - padq-business-investmentscengenerationtool.backend
+      - padq-business-investmentscengenerationtool.db
+      - padq-business-investmentscengenerationtool.flask
+      - padq-business-investmentscengenerationtool.sjj-backend
+      - padq-business-investmentscengenerationtool.sjj-mongodb
+
+# sjj 部分
+  padq-business-investmentscengenerationtool.sjj-backend:
+    build: ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main
+    depends_on:
+      - padq-business-investmentscengenerationtool.sjj-mongodb
+  
+  padq-business-investmentscengenerationtool.sjj-mongodb:
+    image: mongo
+
+  padq-business-investmentscengenerationtool.sjj-notebook:
+    image: jupyter/minimal-notebook
+    depends_on:
+      - padq-business-investmentscengenerationtool.sjj-mongodb
+      - padq-business-investmentscengenerationtool.sjj-backend
+

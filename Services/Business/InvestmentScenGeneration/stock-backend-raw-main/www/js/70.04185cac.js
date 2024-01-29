@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkstock_frontend"]=self["webpackChunkstock_frontend"]||[]).push([[70],{1070:function(t,n,e){e.r(n),e.d(n,{default:function(){return u}});var o=function(){var t=this,n=t._self._c;return n("CompEchart",{attrs:{info:t.info}})},s=[],r=e(3026),f={name:"CompInfo.vue",components:{CompEchart:r.Z},data(){return{info:{time:""}}},created(){this.info.time=this.$store.state.selected,console.log(this.info)}},c=f,i=e(1001),a=(0,i.Z)(c,o,s,!1,null,"fdf9896a",null),u=a.exports}}]);
+//# sourceMappingURL=70.04185cac.js.map

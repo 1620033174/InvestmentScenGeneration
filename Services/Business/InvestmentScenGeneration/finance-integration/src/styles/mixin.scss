@@ -1,0 +1,72 @@
+@mixin clearfix {
+  &:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #99a9bf;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// 统一字号和行距
+// 设计参考：https://tailwindcss.com/docs/font-size
+// 由于基本上用不到5xl的内容，所以5xl及更大的字号没有预设
+@mixin text-xs {
+  line-height: 1rem;
+  font-size: 0.75rem;
+}
+
+@mixin text-sm {
+  line-height: 1.25rem;
+  font-size: 0.875rem;
+}
+
+@mixin text-base {
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+@mixin text-lg {
+  line-height: 1.75rem;
+  font-size: 1.125rem;
+}
+
+@mixin text-xl {
+  line-height: 1.75rem;
+  font-size: 1.25rem;
+}
+
+@mixin text-2xl {
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+
+@mixin text-3xl {
+  line-height: 2.25rem;
+  font-size: 1.875rem;
+}
+
+@mixin text-4xl {
+  line-height: 2.5rem;
+  font-size: 2.25rem;
+}

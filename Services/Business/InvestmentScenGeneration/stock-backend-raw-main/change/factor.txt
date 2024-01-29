@@ -1,0 +1,23 @@
+在哪个层面上处理 factor
+数据库：需要写查询，需要修改路由，需要前端修改测试，不容易增加指标
+运行算法层面：需要特殊处理 factor 文件夹，不能直接加入数据库，要分成 n 个表后插入数据库，能够复用现有更新策略
+csv 层面：最容易实现，但是无法复用更新策略
+
+HashMap<String, Vec<HashMap<String, Value>>>
+流通股本(亿股) -> Vec<{}>
+
+db.getCollection("factors").find({"stock_id": "002932.XSHE", "因子名称": "每股收益(元)"}).sort({"_quarter": 1})
+
+db.getCollection("factors").aggregate([
+{
+    $match: { "stock_id": "002932.XSHE" , "_time": "2021-10-28" }
+},
+{
+    $group: { _id: "$_quarter" }
+},
+{
+    $project: {}
+}
+])
+
+
