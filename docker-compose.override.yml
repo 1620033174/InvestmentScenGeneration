@@ -55,11 +55,11 @@ services:
         max-size: "10m"
         max-file: "5"
     ports:
-      - 8888:8888
+      - 9000:8888
     volumes:
       - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/:/home/jovyan/work
       - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/configure_environment.sh:/usr/local/bin/before-notebook.d/configure_environment.sh
     environment:
       - JUPYTER_TOKEN=1233ccdb3d1f642dca21b7ed2646df01224d15670aeea220 
 volumes:
-  mysql_data:./Services/Business/InvestmentScenGeneration
+  mysql_data:
