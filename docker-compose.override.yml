@@ -26,18 +26,18 @@ services:
       - 80:9528
       - 81:80
     volumes:
-      - ./Service/Business/InvestmentScenGeneration/finance-integration/nginx/finance-integration.conf:/etc/nginx/conf.d/default.conf
-      - ./Service/Business/InvestmentScenGeneration/finance-integration/dist/:/usr/share/nginx/html/
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/www/:/usr/share/nginx/sjj/ 
+      - ./Services/Business/InvestmentScenGeneration/finance-integration/nginx/finance-integration.conf:/etc/nginx/conf.d/default.conf
+      - ./Services/Business/InvestmentScenGeneration/finance-integration/dist/:/usr/share/nginx/html/
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/www/:/usr/share/nginx/sjj/ 
 
 # sjj 部分
   padq-business-investmentscengenerationtool.sjj-backend:
 
     volumes:
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/python-src/:/usr/src/stock-backend/python-src/
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/algorithm/:/usr/src/stock-backend/algorithm/
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/cron-algorithm/:/usr/src/stock-backend/cron-algorithm/
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/Config.toml:/usr/src/stock-backend/Config.toml
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/python-src/:/usr/src/stock-backend/python-src/
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/algorithm/:/usr/src/stock-backend/algorithm/
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/cron-algorithm/:/usr/src/stock-backend/cron-algorithm/
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/Config.toml:/usr/src/stock-backend/Config.toml
     logging:
       driver: "json-file"
       options:
@@ -46,7 +46,7 @@ services:
   
   padq-business-investmentscengenerationtool.sjj-mongodb:
     volumes:
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/db:/data/db
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/db:/data/db
 
   padq-business-investmentscengenerationtool.sjj-notebook:
     logging:
@@ -57,8 +57,8 @@ services:
     ports:
       - 9000:8888
     volumes:
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/:/home/jovyan/work
-      - ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main/configure_environment.sh:/usr/local/bin/before-notebook.d/configure_environment.sh
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/:/home/jovyan/work
+      - ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main/configure_environment.sh:/usr/local/bin/before-notebook.d/configure_environment.sh
     environment:
       - JUPYTER_TOKEN=1233ccdb3d1f642dca21b7ed2646df01224d15670aeea220 
 volumes:

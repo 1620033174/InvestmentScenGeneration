@@ -1,14 +1,14 @@
 version: '3.8'
 services:
   padq-business-investmentscengenerationtool.backend:
-    build: ./Service/Business/InvestmentScenGeneration/finance_backend-master    
+    build: ./Services/Business/InvestmentScenGeneration/finance_backend-master    
     depends_on:
       - padq-business-investmentscengenerationtool.db
   padq-business-investmentscengenerationtool.db:
     image: mysql:5.7
       
   padq-business-investmentscengenerationtool.flask:
-    build: ./Service/Business/InvestmentScenGeneration/finance_flask
+    build: ./Services/Business/InvestmentScenGeneration/finance_flask
     depends_on:
       - padq-business-investmentscengenerationtool.backend
       - padq-business-investmentscengenerationtool.db
@@ -24,7 +24,7 @@ services:
 
 # sjj 部分
   padq-business-investmentscengenerationtool.sjj-backend:
-    build: ./Service/Business/InvestmentScenGeneration/stock-backend-raw-main
+    build: ./Services/Business/InvestmentScenGeneration/stock-backend-raw-main
     depends_on:
       - padq-business-investmentscengenerationtool.sjj-mongodb
   
